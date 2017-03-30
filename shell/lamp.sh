@@ -27,6 +27,6 @@ firewall-cmd --permanent --list-all
 systemctl enable httpd.service
 
 #Install MariaDB
-#echo -e "" > /etc/yum.repos.d/MariaDB.repo
+#echo -e "[mariadb]\nname = MariaDB\nbaseurl = http://yum.mariadb.org/10.1/centos7-amd64\ngpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB\ngpgcheck=1" > /etc/yum.repos.d/MariaDB.repo
 #yum install MariaDB-server MariaDB-client -y
 #systemctl start mariadb
