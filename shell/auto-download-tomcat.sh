@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# auto download latest tomcat tar file
+# auto download latest tomcat 8.5.X tar file
 # and setting somethings
 
 read -p "Download Latest Tomcat Tar File? Y/N :" ask
