@@ -3,6 +3,8 @@
 # auto download latest tomcat 8.5.X tar file
 # and setting somethings
 
+location=$(pwd)
+
 read -p "Download Latest Tomcat Tar File? Y/N :" ask
 
 if [ $ask = N ]
@@ -25,4 +27,16 @@ then
     tar -xzf apache-tomcat-${version}.tar.gz
     read -p "Service Name :" tomcat_name
     mv apache-tomcat-${version} $tomcat_name
+    rm -r $location/$tomcat_name/webapps/*
+fi
+
+read -p "Need change tomcat location? Y/N :" ask
+
+if [ $ask = N ]
+then
+    exit 0;
+elif [ $ask = Y ]
+then
+    read -p "Please enter directory location :" tomcat_local
+    mv $tomcat_name $tomcat_local
 fi
