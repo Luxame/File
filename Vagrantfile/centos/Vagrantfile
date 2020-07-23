@@ -1,0 +1,13 @@
+$script = <<-SCRIPT
+cat /etc/*-release
+sudo yum update -y
+sudo yum install epel-release -y
+sudo yum install git -y
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.define "ts1" do |ts1|
+    ts1.vm.box = "centos/7"
+    ts1.vm.provision "shell", inline: $script
+  end
+end
